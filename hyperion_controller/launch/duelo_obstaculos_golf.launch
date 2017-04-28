@@ -1,0 +1,32 @@
+<launch>
+
+  <node name="controller"
+        pkg ="joy"
+        type="joy_node"
+        respawn="false"
+        output="screen">
+    <remap from="/joy"
+             to="/hyperion/controller"/>
+    <param name="dev" value="/dev/input/js0"/>
+  </node>
+
+  <node name="hyperion"
+        pkg ="hyperion_controller"
+        type="hyperion_controller"
+        respawn="false"
+        output="screen">
+    <param name="axes_deadzone"  type="double" value="0.5"/>
+    <param name="max_speed"      type="int"    value="100"/>
+    <param name="bowling"        type="bool"   value="False"/>
+  </node>
+
+  <node name="motor_driver"
+        pkg ="controlador_motores"
+        type="motor_driver.py"
+        respawn="false"
+        output="screen">
+    <remap from="/motor_speeds"
+           to="/hyperion/speeds"/>
+  </node>
+
+</launch>
