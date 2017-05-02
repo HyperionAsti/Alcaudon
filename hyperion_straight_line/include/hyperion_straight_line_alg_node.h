@@ -31,8 +31,8 @@
 // [publisher subscriber headers]
 #include <std_msgs/Bool.h>
 #include <sensor_msgs/Joy.h>
-#include <controlador_motores/Speeds.h>
-#include <ultrasonido/Distances.h>
+#include <hyperion_motor_driver/Speeds.h>
+#include <hyperion_ultrasound/Distances.h>
 
 // [service client headers]
 
@@ -50,7 +50,7 @@ class HyperionStraightLineAlgNode : public algorithm_base::IriBaseAlgorithm<Hype
     std_msgs::Bool stop_Bool_msg_;
 
     ros::Publisher speeds_publisher_;
-    controlador_motores::Speeds speeds_msg_;
+    hyperion_motor_driver::Speeds speeds_msg_;
 
 
     // [subscriber attributes]
@@ -61,7 +61,7 @@ class HyperionStraightLineAlgNode : public algorithm_base::IriBaseAlgorithm<Hype
     void joy_mutex_exit(void);
 
     ros::Subscriber distances_subscriber_;
-    void distances_callback(const ultrasonido::Distances::ConstPtr& msg);
+    void distances_callback(const hyperion_ultrasound::Distances::ConstPtr& msg);
     pthread_mutex_t distances_mutex_;
     void distances_mutex_enter(void);
     void distances_mutex_exit(void);

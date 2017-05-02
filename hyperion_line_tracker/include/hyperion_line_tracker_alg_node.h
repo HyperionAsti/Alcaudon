@@ -30,8 +30,8 @@
 
 // [publisher subscriber headers]
 #include <sensor_msgs/Joy.h>
-#include <controlador_motores/Speeds.h>
-#include <infrarrojos/opticalinf.h>
+#include <hyperion_motor_driver/Speeds.h>
+#include <hyperion_infrared/opticalinf.h>
 
 // [service client headers]
 
@@ -46,7 +46,7 @@ class HyperionLineTrackerAlgNode : public algorithm_base::IriBaseAlgorithm<Hyper
   private:
     // [publisher attributes]
     ros::Publisher speeds_publisher_;
-    controlador_motores::Speeds speeds_msg_;
+    hyperion_motor_driver::Speeds speeds_msg_;
 
 
     // [subscriber attributes]
@@ -57,7 +57,7 @@ class HyperionLineTrackerAlgNode : public algorithm_base::IriBaseAlgorithm<Hyper
     void joy_mutex_exit(void);
 
     ros::Subscriber ir_error_subscriber_;
-    void ir_error_callback(const infrarrojos::opticalinf::ConstPtr& msg);
+    void ir_error_callback(const hyperion_infrared::opticalinf::ConstPtr& msg);
     pthread_mutex_t ir_error_mutex_;
     void ir_error_mutex_enter(void);
     void ir_error_mutex_exit(void);

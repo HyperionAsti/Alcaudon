@@ -7,7 +7,7 @@ HyperionLineTrackerAlgNode::HyperionLineTrackerAlgNode(void) :
   //this->loop_rate_ = 2;//in [Hz]
   this->loop_rate_ = 100;
   // [init publishers]
-  this->speeds_publisher_ = this->public_node_handle_.advertise<controlador_motores::Speeds>("speeds", 1);
+  this->speeds_publisher_ = this->public_node_handle_.advertise<hyperion_motor_driver::Speeds>("speeds", 1);
   
   // [init subscribers]
   this->joy_subscriber_ = this->public_node_handle_.subscribe("joy", 1, &HyperionLineTrackerAlgNode::joy_callback, this);
@@ -136,7 +136,7 @@ void HyperionLineTrackerAlgNode::joy_mutex_exit(void)
   pthread_mutex_unlock(&this->joy_mutex_);
 }
 
-void HyperionLineTrackerAlgNode::ir_error_callback(const infrarrojos::opticalinf::ConstPtr& msg)
+void HyperionLineTrackerAlgNode::ir_error_callback(const hyperion_infrared::opticalinf::ConstPtr& msg)
 {
   ROS_DEBUG("HyperionLineTrackerAlgNode::ir_error_callback: New Message Received");
 

@@ -29,11 +29,11 @@
 #include "hyperion_controller_alg.h"
 
 // [publisher subscriber headers]
-#include <controlador_motores/Speeds.h>
+#include <hyperion_motor_driver/Speeds.h>
 #include <sensor_msgs/Joy.h>
 
 // [service client headers]
-#include <shot_ball/Gancho.h>
+#include <hyperion_shot_ball/Gancho.h>
 
 // [action server client headers]
 
@@ -46,7 +46,7 @@ class HyperionControllerAlgNode : public algorithm_base::IriBaseAlgorithm<Hyperi
   private:
     // [publisher attributes]
     ros::Publisher speeds_publisher_;
-    controlador_motores::Speeds speeds_msg_;
+    hyperion_motor_driver::Speeds speeds_msg_;
 
     // [subscriber attributes]
     ros::Subscriber controller_subscriber_;
@@ -59,7 +59,7 @@ class HyperionControllerAlgNode : public algorithm_base::IriBaseAlgorithm<Hyperi
 
     // [client attributes]
     ros::ServiceClient gripper_client_;
-    shot_ball::Gancho gripper_srv_;
+    hyperion_shot_ball::Gancho gripper_srv_;
 
 
     // [action server attributes]

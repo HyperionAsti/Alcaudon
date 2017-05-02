@@ -20,12 +20,19 @@
   </node>
 
   <node name="motor_driver"
-        pkg ="controlador_motores"
+        pkg ="hyperion_motor_driver"
         type="motor_driver.py"
         respawn="false"
         output="screen">
     <remap from="/motor_speeds"
            to="/hyperion/speeds"/>
+  </node>
+
+  <node name="shot_ball"
+        pkg ="hyperion_shot_ball"
+        type="pinza.py"
+        respawn="false"
+        output="screen">
     <remap from="/gancho"
            to="/hyperion/gripper"/>
   </node>

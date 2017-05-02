@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package>
-  <name>controlador_motores</name>
+  <name>hyperion_motor_driver</name>
   <version>0.0.0</version>
-  <description>The controlador_motores package</description>
+  <description>The hyperion_motor_driver package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag --> 
   <!-- Example:  -->

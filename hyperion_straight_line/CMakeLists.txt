@@ -6,7 +6,7 @@ find_package(catkin REQUIRED)
 # ******************************************************************** 
 #                 Add catkin additional components here
 # ******************************************************************** 
-find_package(catkin REQUIRED COMPONENTS iri_base_algorithm sensor_msgs controlador_motores ultrasonido std_msgs)
+find_package(catkin REQUIRED COMPONENTS iri_base_algorithm sensor_msgs hyperion_motor_driver hyperion_ultrasound std_msgs)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -60,7 +60,7 @@ catkin_package(
 # ******************************************************************** 
 #            Add ROS and IRI ROS run time dependencies
 # ******************************************************************** 
- CATKIN_DEPENDS iri_base_algorithm sensor_msgs controlador_motores ultrasonido std_msgs
+ CATKIN_DEPENDS iri_base_algorithm sensor_msgs hyperion_motor_driver hyperion_ultrasound std_msgs
 # ******************************************************************** 
 #      Add system and labrobotica run time dependencies here
 # ******************************************************************** 
@@ -96,8 +96,8 @@ target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
 # add_dependencies(${PROJECT_NAME} <msg_package_name>_generate_messages_cpp)
 add_dependencies(${PROJECT_NAME} sensor_msgs_generate_messages_cpp)
 add_dependencies(${PROJECT_NAME} std_msgs_generate_messages_cpp)
-add_dependencies(${PROJECT_NAME} controlador_motores_generate_messages_cpp)
-add_dependencies(${PROJECT_NAME} ultrasonido_generate_messages_cpp)
+add_dependencies(${PROJECT_NAME} hyperion_motor_driver_messages_cpp)
+add_dependencies(${PROJECT_NAME} hyperion_ultrasound_generate_messages_cpp)
 # ******************************************************************** 
 #               Add dynamic reconfigure dependencies 
 # ******************************************************************** 

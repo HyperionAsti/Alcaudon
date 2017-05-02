@@ -2,8 +2,8 @@
 import rospy
 import RPi.GPIO as GPIO
 import time
-from controlador_motores.msg import Speeds
-from controlador_motores.srv import *
+from hyperion_motor_driver.msg import Speeds
+from hyperion_motor_driver.srv import *
 
 # Pines que controlan la velocidad de los motores y el sentido de giro
 _GPIO_MOTOR_LEFT=5
@@ -30,7 +30,7 @@ def handle_service(req):
 		GPIO.output(_GPIO_LEFT_DIR, True)
 		GPIO.output(_GPIO_RIGHT_DIR, False)
 		_LEFT_PWM.ChangeDutyCycle(70)
-    	_RIGHT_PWM.ChangeDutyCycle(0)
+         	_RIGHT_PWM.ChangeDutyCycle(0)
 		tiempo0=time.time()
 		while (time.time()-tiempo0)<0.4:
     	        	pass
@@ -46,7 +46,7 @@ def handle_service(req):
 	_RIGHT_PWM.ChangeDutyCycle(0)
 	return TurnResponse("")
 
-#Función callback, cada vez que el nodo principal le mande una nueva consigna, la velocidad y dirección de los motores se actualizará. 	
+#Funcion callback, cada vez que el nodo principal le mande una nueva consigna, la velocidad y direccion de los motores se actualizara. 	
 def callback(data):
 	
 	if data.left_speed>=-100 and data.left_speed<=100:
@@ -69,7 +69,7 @@ def callback(data):
 	else:
 	    pass;
 
-#Función encargada de iniciar el nodo, el tópico y el servicio, así como de esperar los callbacks
+#Funcion encargada de iniciar el nodo, el topico y el servicio, asi como de esperar los callbacks
 def motor_driver():
 
 	rospy.init_node('motor_driver', anonymous=True)

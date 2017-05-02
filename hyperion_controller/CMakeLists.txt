@@ -6,7 +6,7 @@ find_package(catkin REQUIRED)
 # ******************************************************************** 
 #                 Add catkin additional components here
 # ******************************************************************** 
-find_package(catkin REQUIRED COMPONENTS iri_base_algorithm shot_ball sensor_msgs std_msgs controlador_motores)
+find_package(catkin REQUIRED COMPONENTS iri_base_algorithm hyperion_shot_ball sensor_msgs std_msgs hyperion_motor_driver)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -60,7 +60,7 @@ catkin_package(
 # ******************************************************************** 
 #            Add ROS and IRI ROS run time dependencies
 # ******************************************************************** 
- CATKIN_DEPENDS iri_base_algorithm shot_ball sensor_msgs std_msgs controlador_motores
+ CATKIN_DEPENDS iri_base_algorithm hyperion_shot_ball sensor_msgs std_msgs hyperion_motor_driver
 # ******************************************************************** 
 #      Add system and labrobotica run time dependencies here
 # ******************************************************************** 
@@ -94,9 +94,9 @@ target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
 #               Add message headers dependencies 
 # ******************************************************************** 
 # add_dependencies(${PROJECT_NAME} <msg_package_name>_generate_messages_cpp)
-add_dependencies(${PROJECT_NAME} shot_ball_generate_messages_cpp)
+add_dependencies(${PROJECT_NAME} hyperion_shot_ball_generate_messages_cpp)
 add_dependencies(${PROJECT_NAME} sensor_msgs_generate_messages_cpp)
-add_dependencies(${PROJECT_NAME} controlador_motores_generate_messages_cpp)
+add_dependencies(${PROJECT_NAME} hyperion_motor_driver_generate_messages_cpp)
 # ******************************************************************** 
 #               Add dynamic reconfigure dependencies 
 # ******************************************************************** 

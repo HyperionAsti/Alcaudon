@@ -28,7 +28,7 @@
   </node>
 
   <node name="ir"
-        pkg ="infrarrojos"
+        pkg ="hyperion_infrared"
         type="infrarrojos_sensor.py"
         respawn="false"
         output="screen">
@@ -37,7 +37,7 @@
   </node>-->
 
   <node name="motor_driver"
-        pkg ="controlador_motores"
+        pkg ="hyperion_motor_driver"
         type="motor_driver.py"
         respawn="false"
         output="screen">

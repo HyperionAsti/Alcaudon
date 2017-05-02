@@ -7,7 +7,7 @@ HyperionControllerAlgNode::HyperionControllerAlgNode(void) :
   this->loop_rate_ = 100;//in [Hz]
 
   // [init publishers]
-  this->speeds_publisher_ = this->public_node_handle_.advertise<controlador_motores::Speeds>("speeds", 1);
+  this->speeds_publisher_ = this->public_node_handle_.advertise<hyperion_motor_driver::Speeds>("speeds", 1);
 
   // [init subscribers]
   this->controller_subscriber_ = this->public_node_handle_.subscribe("controller", 1, &HyperionControllerAlgNode::controller_callback, this);
@@ -16,7 +16,7 @@ HyperionControllerAlgNode::HyperionControllerAlgNode(void) :
   // [init services]
   
   // [init clients]
-  gripper_client_ = this->public_node_handle_.serviceClient<shot_ball::Gancho>("gripper");
+  gripper_client_ = this->public_node_handle_.serviceClient<hyperion_shot_ball::Gancho>("gripper");
 
   
   // [init action servers]

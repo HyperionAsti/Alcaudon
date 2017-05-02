@@ -31,7 +31,7 @@
   </node>
 
   <node name="ultrasonic_sensors"
-        pkg ="ultrasonido"
+        pkg ="hyperion_ultrasound"
         type="ultrasonidos.py"
         respawn="false"
         output="screen">
@@ -42,7 +42,7 @@
   </node>
 
   <node name="motor_driver"
-        pkg ="controlador_motores"
+        pkg ="hyperion_motor_driver"
         type="motor_driver.py"
         respawn="false"
         output="screen">

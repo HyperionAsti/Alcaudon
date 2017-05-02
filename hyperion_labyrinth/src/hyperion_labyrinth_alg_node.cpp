@@ -8,7 +8,7 @@ HyperionLabyrinthAlgNode::HyperionLabyrinthAlgNode(void) :
 
   // [init publishers]
   this->stop_publisher_ = this->public_node_handle_.advertise<std_msgs::Bool>("stop", 1);
-  this->speeds_publisher_ = this->public_node_handle_.advertise<controlador_motores::Speeds>("speeds", 1);
+  this->speeds_publisher_ = this->public_node_handle_.advertise<hyperion_motor_driver::Speeds>("speeds", 1);
 
   // [init subscribers]
   this->joy_subscriber_ = this->public_node_handle_.subscribe("joy", 1, &HyperionLabyrinthAlgNode::joy_callback, this);
@@ -23,7 +23,7 @@ HyperionLabyrinthAlgNode::HyperionLabyrinthAlgNode(void) :
   // [init services]
   
   // [init clients]
-  turn_client_ = this->public_node_handle_.serviceClient<controlador_motores::Turn>("turn");
+  turn_client_ = this->public_node_handle_.serviceClient<hyperion_motor_driver::Turn>("turn");
 
   
   // [init action servers]
@@ -177,7 +177,7 @@ void HyperionLabyrinthAlgNode::joy_mutex_exit(void)
   pthread_mutex_unlock(&this->joy_mutex_);
 }
 
-void HyperionLabyrinthAlgNode::distances_callback(const ultrasonido::Distances::ConstPtr& msg)
+void HyperionLabyrinthAlgNode::distances_callback(const hyperion_ultrasound::Distances::ConstPtr& msg)
 {
   distances_mutex_enter();
   //ROS_INFO("HyperionLabyrinthAlgNode::distances_callback: New Message Received");
